@@ -3,8 +3,8 @@ A multi-threading DFS algorithm solution to the N-Queens problem. Results are co
 
 For example on a 5 x 5 board the solution string ACEBD corresponds to
 
-| Character |
-| :-------: |
+| Character ||||||
+| :-------: |-|-|-|-|-|
 | A         | Q | - | - | - | - |
 | B         | - | - | - | Q | - |
 | C         | - | Q | - | - | - |
