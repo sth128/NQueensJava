@@ -3,7 +3,7 @@ package nQueens;
 import java.util.*;
 import java.util.concurrent.*;
 
-public class NQueensRedux implements Runnable {
+public class NQueensDFS implements Runnable {
 	public static final int BOARD_SIZE = 15;
 	public static final int MAX_ROWS = BOARD_SIZE / 2 + BOARD_SIZE % 2;
 	public static final int DISPLAY_LIMIT = 1;
@@ -20,7 +20,7 @@ public class NQueensRedux implements Runnable {
 	 * @param end The last row on the first column to place a queen
 	 * @param q the BlockingQueue used for solution output
 	 */
-	NQueensRedux(int n, int start, int end, BlockingQueue<String> q) {
+	NQueensDFS(int n, int start, int end, BlockingQueue<String> q) {
 		this.start = start;
 		this.end = end;
 		this.n = n;
@@ -37,7 +37,7 @@ public class NQueensRedux implements Runnable {
 		writerThread.start();
 		// Create as many threads as MAX_THREADS
 		for (int i = 0; i < MAX_ROWS; i += MAX_ROWS / MAX_THREADS) {
-			Thread t = new Thread(new NQueensRedux(BOARD_SIZE, i, Math.min(i + MAX_ROWS / MAX_THREADS, MAX_ROWS), q));
+			Thread t = new Thread(new NQueensDFS(BOARD_SIZE, i, Math.min(i + MAX_ROWS / MAX_THREADS, MAX_ROWS), q));
 			t.start();
 			threads.add(t);
 		}
